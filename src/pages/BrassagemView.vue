@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import Ramp from '@/components/ramp/RampComponent.vue'
-import BInput from '@/components/inputs/BInputComponent.vue'
-import BDoubleButton from '@/components/actions/BDoubleButtonComponent.vue'
+import RampComponent from '@/components/ramp/RampComponent.vue'
+import InputComponent from '@/components/inputs/InputComponent.vue'
 import { router } from '@/routes'
 import { useSweetAlert } from '@/composables'
 
@@ -29,47 +28,19 @@ const cancel = async () => {
       <p>{{ statement }}:</p>
 
       <div class="main">
-        <b-input
+        <InputComponent
           label="Aquecimento"
           placeholder="Temperatura (C)"
           v-model="input1"
         />
-        <ramp />
-        <b-input
+        <RampComponent />
+        <InputComponent
           label="Fervura"
           placeholder="Tempo (Minutos)"
           v-model="input2"
           margin_top
         />
       </div>
-      <div class="footer">
-        <b-double-button
-          label1="Enviar Dados"
-          label2="Cancelar"
-          @first-event="sendData"
-          @second-event="cancel"
-        />
-      </div>
     </div>
   </section>
 </template>
-
-<style lang="scss" scoped>
-#bras {
-  padding: 20px 30px;
-
-  .img {
-    text-align: center;
-  }
-
-  .content {
-    .main, .footer {
-      padding: 10px;
-    }
-    .footer {
-      margin-top: 100px;
-    }
-  }
-
-}
-</style>

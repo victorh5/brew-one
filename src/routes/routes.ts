@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router'
 import Home from '@/pages/HomeView.vue'
-import Brass from '@/pages/BrassView.vue'
+import Brassagem from '@/pages/BrassagemView.vue'
 import Fermentation from '@/pages/FermentationView.vue'
 
 export const routes = [
@@ -12,12 +12,7 @@ export const routes = [
   {
     path: '/brassagem',
     name: 'brass',
-    component: Brass,
-  },
-  {
-    path: '/rampa',
-    name: 'ramp',
-    component: () => import('@/pages/RampInfoView.vue')
+    component: Brassagem,
   },
   {
     path: '/fermentacao',
