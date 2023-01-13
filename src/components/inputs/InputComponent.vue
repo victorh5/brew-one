@@ -22,15 +22,17 @@ const test = (evt: Event) => {
 </script>
 
 <template>
-  <label
-    class="label-input"
-    v-if="label"
-  >{{ label }}</label>
-  <input
-    :value="modelValue"
-    :placeholder="placeholder"
-    class="text-input"
-    :type="type"
-    @input="test"
-  >
+  <div class="grid grid-rows-2">
+    <label
+      class="font-bold"
+      v-if="label"
+    >{{ label }}</label>
+    <input
+      :value="modelValue"
+      :placeholder="placeholder"
+      class="p-2 rounded-md text-black focus:outline-none"
+      :type="type"
+      @input="test"
+    >
+  </div>
 </template>

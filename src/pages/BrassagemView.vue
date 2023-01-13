@@ -4,30 +4,27 @@ import RampComponent from '@/components/ramp/RampComponent.vue'
 import InputComponent from '@/components/inputs/InputComponent.vue'
 import { router } from '@/routes'
 import { useSweetAlert } from '@/composables'
+import ButtonComponent from '@/components/actions/ButtonComponent.vue'
 
-const statement = 'Defina as opções de brassagem'
 const input1 = ref('')
 const input2 = ref('')
 const { success } = useSweetAlert()
 
 const sendData = async () => {
   await success('Sucesso', 'Dados enviados com sucesso!')
-  await router.push({ name: 'ramp' })
-}
-const cancel = async () => {
-  await router.push({name: 'home'})
+  await router.push({ name: 'follow-up-brass' })
 }
 </script>
 
 <template>
-  <section id="bras">
-    <div class="img">
+  <section class="py-4 px-8">
+    <div class="flex justify-center">
       <img src="../assets/logo2.png" alt="Logo Brew One">
     </div>
-    <div class="content">
-      <p>{{ statement }}:</p>
+    <div class="py-4">
+      <h3>Defina as opções de brassagem:</h3>
 
-      <div class="main">
+      <div class="py-6 px-2">
         <InputComponent
           label="Aquecimento"
           placeholder="Temperatura (C)"
@@ -41,6 +38,10 @@ const cancel = async () => {
           margin_top
         />
       </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4 px-2 pt-4">
+      <ButtonComponent @event="router.go(-1)">Cancelar</ButtonComponent>
+      <ButtonComponent @event="sendData">Avançar</ButtonComponent>
     </div>
   </section>
 </template>
