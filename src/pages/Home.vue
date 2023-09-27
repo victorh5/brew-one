@@ -16,9 +16,9 @@ const redirect = async (route_name: 'brewing' | 'fermentation') => await router.
       <h1 class="font-bold text-2xl">Seja Bem-vindo</h1>
       <p class="font-regular text-sm">Escolha o procedimento que deseja realizar!</p>
     </div>
-    <div class="grid grid-rows-2 gap-2 justify-center">
-      <brew-button class="px-8" @event="redirect('brewing')">Brassagem</brew-button>
-      <brew-button class="px-8" @event="redirect('fermentation')">Fermentação</brew-button>
+    <div class="grid grid-rows-2 gap-4 justify-center">
+      <brew-button class="w-36" @event="redirect('brewing')">Brassagem</brew-button>
+      <brew-button class="w-36" @event="redirect('fermentation')">Fermentação</brew-button>
     </div>
   </section>
 </template>

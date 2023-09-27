@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 import { Input } from '@/models'
-import { router } from '@/routes'
 import { useSweetAlert } from '@/composables'
 import NewRamp from '@/components/ramp/NewRamp.vue'
-import BrewButton from '@/components/actions/BrewButton.vue'
+import LayoutDefault from '@/layouts/default.vue'
 
 const { success } = useSweetAlert()
 
@@ -16,20 +15,12 @@ const sendData = async () => {
 </script>
 
 <template>
-  <section class="py-4 px-8">
-    <div class="flex justify-center">
-      <img src="@/assets/logo2.png" alt="Logo Brew One">
+  <layout-default
+    header-title="Defina as opções de fermentação:"
+    @send-footer="sendData"
+  >
+    <div class="px-8">
+      <new-ramp @get-params="updateRampValues" />
     </div>
-    <div class="py-4">
-      <h3>Defina as opções de fermentação:</h3>
-
-      <div class="main">
-        <new-ramp @get-params="updateRampValues" />
-      </div>
-      <div class="grid grid-cols-2 gap-4 py-6">
-        <brew-button @event="router.go(-1)">Cancelar</brew-button>
-        <brew-button @event="sendData">Avançar</brew-button>
-      </div>
-    </div>
-  </section>
+  </layout-default>
 </template>
