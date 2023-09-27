@@ -1,10 +1,16 @@
 <script lang="ts" setup>
-
+withDefaults(defineProps<{
+  title: string
+  content: string
+  showActions?: boolean
+}>(), {
+  showActions: true
+})
 </script>
 
 <template>
   <div>
-    <div class="mb-3 text-base font-normal">Temperatura Atual</div>
+    <div class="mb-3 text-base font-normal">{{ title }}</div>
     <div id="component">
       <div class="temperature">
         <h1
@@ -12,9 +18,9 @@
             items-center justify-center
             text-black font-bold text-3xl
           "
-        >0.0ºC</h1>
+        >{{ content }}</h1>
       </div>
-      <div class="icons">
+      <div class="icons" v-if="showActions">
         <div class="bg-white text-black px-2">+</div>
         <div class="bg-white text-black px-2">-</div>
       </div>

@@ -11,12 +11,17 @@ const bomb = ref(false)
 <template>
   <layout-default
     header-title="Aquecimento"
+    @send-footer="$router.push({ name: 'follow-ramp' })"
   >
-    <div class="px-8 py-6">
-      <card-temperature />
-      <div class="grid grid-cols-2">
-        <brew-toggle v-model="resistence" title="Resistência" />
-        <brew-toggle v-model="bomb" title="Bomba" />
+    <div class="px-8">
+      <card-temperature title="Temperatura Atual" content="0.0ºC" />
+      <div class="grid grid-cols-2 py-6">
+        <div>
+          <brew-toggle v-model="resistence" title="Resistência" />
+        </div>
+        <div>
+          <brew-toggle v-model="bomb" title="Bomba" />
+        </div>
       </div>
     </div>
   </layout-default>

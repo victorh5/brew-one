@@ -3,6 +3,7 @@ import Home from '@/pages/Home.vue'
 import Brewing from '@/pages/brewing/BrewingPage.vue'
 import Heating from '@/pages/brewing/HeatingPage.vue'
 import Fermentation from '@/pages/fermentation/FermentationPage.vue'
+import FollowRamp from '@/pages/brewing/FollowRamp.vue'
 import EmptyLayout from '@/layouts/empty.vue'
 
 export const routes: RouteRecordRaw[] = [
@@ -21,10 +22,15 @@ export const routes: RouteRecordRaw[] = [
         component: Brewing
       },
       {
-        path: '/heating',
+        path: 'heating',
         name: 'heating',
         component: Heating
       },
+      {
+        path: 'follow-ramp',
+        name: 'follow-ramp',
+        component: FollowRamp
+      }
     ]
   },
   {

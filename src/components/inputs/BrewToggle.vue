@@ -8,7 +8,6 @@ defineProps<{
 </script>
 
 <template>
-  <div class="py-4">
     <div class="mb-2 text-white">{{title}}</div>
     <div class="flex">
       <label :for="title" class="flex items-center cursor-pointer">
@@ -23,7 +22,6 @@ defineProps<{
         </div>
       </label>
     </div>
-  </div>
 </template>
 
 <style>
