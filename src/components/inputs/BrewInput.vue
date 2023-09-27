@@ -22,7 +22,7 @@ const test = (evt: Event) => {
 </script>
 
 <template>
-  <div class="grid grid-rows-2">
+  <div :class="{'grid grid-rows-2': label}">
     <label
       class="font-bold"
       v-if="label"
@@ -30,7 +30,7 @@ const test = (evt: Event) => {
     <input
       :value="modelValue"
       :placeholder="placeholder"
-      class="p-2 rounded-md text-black focus:outline-none"
+      class="p-2 w-full rounded-md text-black focus:outline-none"
       :type="type"
       @input="test"
     >

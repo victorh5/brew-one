@@ -19,7 +19,7 @@ const sendData = async () => {
     header-title="Defina as opções de fermentação:"
     @send-footer="sendData"
   >
-    <div class="px-8">
+    <div class="px-8 pb-2">
       <new-ramp @get-params="updateRampValues" />
     </div>
   </layout-default>

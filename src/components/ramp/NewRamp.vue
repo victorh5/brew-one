@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { Input } from '@/models'
-import BrewButton from '../actions/BrewButton.vue';
+import BrewButton from '../actions/BrewButton.vue'
+import BrewInput from '../inputs/BrewInput.vue'
 
 const emit = defineEmits(['get-params'])
 const inputs = ref<Input[]>([
@@ -24,17 +25,15 @@ const removeRamp = () => {
   <div v-for="(input, i) in inputs" :key="i" class="pt-4">
     <label class="font-bold">Rampa {{i + 1}}</label>
     <div class="grid grid-cols-2 gap-4 mt-4">
-      <input
+      <brew-input
         placeholder="Temperatura (C)"
         v-model="input.temperature"
-        class="p-2 rounded-md text-black focus:outline-none"
-        type="number"
+        inputmode="numeric"
       />
-      <input
+      <brew-input
         placeholder="Tempo (minutos)"
-        class="p-2 rounded-md text-black focus:outline-none"
         v-model="input.time"
-        type="number"
+        inputmode="numeric"
       />
     </div>
   </div>

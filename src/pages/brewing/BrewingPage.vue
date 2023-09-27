@@ -21,7 +21,7 @@ const sendData = async () => {
     header-title="Defina as opções de brassagem:"
     @send-footer="sendData"
   >
-    <div class="px-8">
+    <div class="px-8 pb-2">
       <brew-input
         label="Aquecimento"
         placeholder="Temperatura (C)"
