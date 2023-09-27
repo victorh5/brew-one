@@ -1,28 +1,35 @@
 import { RouteRecordRaw } from 'vue-router'
-import Home from '@/pages/HomeView.vue'
-import Brassagem from '@/pages/BrassagemView.vue'
-import FollowUpBrassagem from '@/pages/FollowUpBrassagemView.vue'
-import Fermentation from '@/pages/FermentationView.vue'
+import Home from '@/pages/Home.vue'
+import Brewing from '@/pages/brewing/BrewingPage.vue'
+import Heating from '@/pages/brewing/HeatingPage.vue'
+import Fermentation from '@/pages/fermentation/FermentationPage.vue'
+import EmptyLayout from '@/layouts/empty.vue'
 
-export const routes = [
+export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
     component: Home
   },
   {
-    path: '/brassagem',
-    name: 'brass',
-    component: Brassagem
+    path: '/brewing',
+    component: EmptyLayout,
+    children: [
+      {
+        path: '',
+        name: 'brewing',
+        component: Brewing
+      },
+      {
+        path: '/heating',
+        name: 'heating',
+        component: Heating
+      },
+    ]
   },
   {
-    path: '/follow-up',
-    name: 'follow-up-brass',
-    component: FollowUpBrassagem
-  },
-  {
-    path: '/fermentacao',
+    path: '/fermentation',
     name: 'fermentation',
     component: Fermentation
   }
-] as RouteRecordRaw[]
+]

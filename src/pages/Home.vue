@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
-import ButtonComponent from '@/components/actions/ButtonComponent.vue'
+import BrewButton from '@/components/actions/BrewButton.vue'
 
 const router = useRouter()
 
-const redirect = async (route_name: 'brass' | 'fermentation') => await router.push({ name: route_name })
+const redirect = async (route_name: 'brewing' | 'fermentation') => await router.push({ name: route_name })
 </script>
 
 <template>
@@ -17,8 +17,8 @@ const redirect = async (route_name: 'brass' | 'fermentation') => await router.pu
       <p class="font-regular text-sm">Escolha o procedimento que deseja realizar!</p>
     </div>
     <div class="grid grid-rows-2 gap-2 justify-center">
-      <ButtonComponent class="px-8" @event="redirect('brass')">Brassagem</ButtonComponent>
-      <ButtonComponent class="px-8" @event="redirect('fermentation')">Fermentação</ButtonComponent>
+      <brew-button class="px-8" @event="redirect('brewing')">Brassagem</brew-button>
+      <brew-button class="px-8" @event="redirect('fermentation')">Fermentação</brew-button>
     </div>
   </section>
 </template>

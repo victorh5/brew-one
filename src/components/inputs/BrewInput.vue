@@ -13,7 +13,7 @@ const emit = defineEmits(['update:modelValue'])
 const props = withDefaults(defineProps<Props>(), {
   type: 'string'
 })
-const { placeholder, label, margin_top } = toRefs(props)
+const { placeholder, label } = toRefs(props)
 
 const test = (evt: Event) => {
   const target = (<HTMLInputElement>evt.target)

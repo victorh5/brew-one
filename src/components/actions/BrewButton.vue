@@ -1,14 +1,24 @@
 <script lang="ts" setup>
-defineProps<{
+import { tv } from 'tailwind-variants'
+import { ButtonHTMLAttributes } from 'vue'
+
+interface ButtonProps extends ButtonHTMLAttributes {
   loading?: boolean
-}>()
+}
+
+defineProps<ButtonProps>()
+
+const button = tv({
+  base: 'flex items-center justify-center h-10 px-4 rounded-md text-sm bg-zinc-50 text-zinc-900 hover:bg-zinc-200'
+})
+
 const emit = defineEmits(['event'])
 </script>
 
 <template>
   <button
     @click="emit('event')"
-    class="py-2 bg-white text-black w-full rounded-md"
+    :class="button()"
   >
     <div
       v-if="loading"

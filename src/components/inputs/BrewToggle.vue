@@ -11,11 +11,11 @@ defineProps<{
   <div class="py-4">
     <div class="mb-2 text-white">{{title}}</div>
     <div class="flex">
-      <label for="toggleB" class="flex items-center cursor-pointer">
+      <label :for="title" class="flex items-center cursor-pointer">
         <!-- toggle -->
         <div class="relative">
           <!-- input -->
-          <input type="checkbox" id="toggleB" class="sr-only" v-model="checkbox">
+          <input type="checkbox" :id="title" class="sr-only" v-model="checkbox">
           <!-- line -->
           <div class="block bg-gray-400 w-14 h-8 rounded-full" :class="{'bg-green-500': checkbox}"></div>
           <!-- dot -->

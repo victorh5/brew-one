@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import RampComponent from '@/components/ramp/RampComponent.vue'
-import ButtonComponent from '@/components/actions/ButtonComponent.vue'
 import { Input } from '@/models'
 import { router } from '@/routes'
 import { useSweetAlert } from '@/composables'
+import NewRamp from '@/components/ramp/NewRamp.vue'
+import BrewButton from '@/components/actions/BrewButton.vue'
 
 const { success } = useSweetAlert()
 
@@ -18,17 +18,17 @@ const sendData = async () => {
 <template>
   <section class="py-4 px-8">
     <div class="flex justify-center">
-      <img src="../assets/logo2.png" alt="Logo Brew One">
+      <img src="@/assets/logo2.png" alt="Logo Brew One">
     </div>
     <div class="py-4">
       <h3>Defina as opções de fermentação:</h3>
 
       <div class="main">
-        <RampComponent @get-params="updateRampValues" />
+        <new-ramp @get-params="updateRampValues" />
       </div>
       <div class="grid grid-cols-2 gap-4 py-6">
-        <ButtonComponent @event="router.go(-1)">Cancelar</ButtonComponent>
-        <ButtonComponent @event="sendData">Avançar</ButtonComponent>
+        <brew-button @event="router.go(-1)">Cancelar</brew-button>
+        <brew-button @event="sendData">Avançar</brew-button>
       </div>
     </div>
   </section>

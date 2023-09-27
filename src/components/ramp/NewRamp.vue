@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { Input } from '@/models'
-import ButtonComponent from '../actions/ButtonComponent.vue';
+import BrewButton from '../actions/BrewButton.vue';
 
 const emit = defineEmits(['get-params'])
 const inputs = ref<Input[]>([
@@ -9,7 +9,6 @@ const inputs = ref<Input[]>([
 ])
 
 const addRamp = () => {
-  emit('get-params', inputs.value)
   inputs.value.push({
     temperature: '',
     time: ''
@@ -40,7 +39,7 @@ const removeRamp = () => {
     </div>
   </div>
   <div class="grid grid-cols-2 gap-4 mt-2 pb-4">
-    <ButtonComponent @event="addRamp">Adicionar</ButtonComponent>
-    <ButtonComponent @event="removeRamp">Remover</ButtonComponent>
+    <brew-button @event="addRamp">Adicionar</brew-button>
+    <brew-button @event="removeRamp">Remover</brew-button>
   </div>
 </template>
