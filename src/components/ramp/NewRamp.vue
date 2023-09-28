@@ -31,7 +31,7 @@ const removeRamp = () => {
         inputmode="numeric"
       />
       <brew-input
-        placeholder="Tempo (minutos)"
+        placeholder="Tempo (dias)"
         v-model="input.time"
         inputmode="numeric"
       />
